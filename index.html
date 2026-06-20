@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090a0d" />
+  <title>Apex Archive — Car Poster Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="fixes.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="local-notice" id="localNotice" hidden>
+    Print downloads need the local website launcher. Close this page and open <b>Start Apex Archive.cmd</b> from the website folder.
+  </div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Apex Archive home">
+      <span class="brand-mark">A</span>
+      <span>APEX <b>ARCHIVE</b></span>
+    </a>
+    <!-- Poster upload controls are kept in the codebase but hidden from the public gallery. -->
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR AUTOMOTIVE GALLERY</p>
+      <h1>Every machine has<br><em>a story.</em></h1>
+      <p class="hero-copy">Collect, catalogue and share the car posters you create.</p>
+      <div class="hero-line"><span></span><small id="posterCount">0 POSTERS ARCHIVED</small></div>
+    </section>
+
+    <section class="combo-section" aria-labelledby="comboTitle">
+      <div class="combo-heading">
+        <div><p class="eyebrow">CURATED WALL SETS</p><h2 id="comboTitle">The combo collection</h2></div>
+        <p>Designed to hang together. Choose a complete automotive story for your wall.</p>
+      </div>
+      <div class="combo-grid">
+        <article class="combo-card combo-light">
+          <div class="combo-art" aria-hidden="true">
+            <img src="assets/bugatti-eb110-1991.png" alt="">
+            <img src="assets/bugatti-veyron-2005.png" alt="">
+            <img src="assets/bugatti-chiron-2016.png" alt="">
+            <img src="assets/bugatti-mistral-alternate.png" alt="">
+            <img src="assets/bugatti-tourbillon-poster-1.png" alt="">
+          </div>
+          <div class="combo-copy">
+            <span class="combo-number">COMBO 01 · 5 POSTERS</span>
+            <h3>Bugatti Legacy</h3>
+            <p>EB110 · Veyron · Chiron · Mistral · Tourbillon</p>
+            <button class="combo-button" data-combo="bugatti">View this set <span>→</span></button>
+          </div>
+        </article>
+        <article class="combo-card combo-dark">
+          <div class="combo-art" aria-hidden="true">
+            <img src="assets/koenigsegg-cc-prototype-1996.png" alt="">
+            <img src="assets/koenigsegg-cc8s-2002.png" alt="">
+            <img src="assets/koenigsegg-ccr-2004.png" alt="">
+            <img src="assets/koenigsegg-ccx-2006.png" alt="">
+            <img src="assets/koenigsegg-agera-rs-2015.png" alt="">
+            <img src="assets/koenigsegg-jesko-absolut-2021.png" alt="">
+          </div>
+          <div class="combo-copy">
+            <span class="combo-number">COMBO 02 · 6 POSTERS</span>
+            <h3>Koenigsegg Evolution</h3>
+            <p>CC Prototype · CC8S · CCR · CCX · Agera RS · Jesko Absolut</p>
+            <button class="combo-button" data-combo="koenigsegg">View this set <span>→</span></button>
+          </div>
+        </article>
+        <article class="combo-card combo-light">
+          <div class="combo-art" aria-hidden="true">
+            <img src="assets/porsche-carrera-gt-2004.png" alt="">
+            <img src="assets/porsche-911-gt2-rs-997-2010.png" alt="">
+            <img src="assets/porsche-911-gt3-rs-9912-2018.png" alt="">
+            <img src="assets/porsche-919-hybrid-evo-2018.png" alt="">
+            <img src="assets/porsche-718-cayman-gt4-rs-2021.png" alt="">
+            <img src="assets/porsche-911-gt3-rs-2024.png" alt="">
+          </div>
+          <div class="combo-copy">
+            <span class="combo-number">COMBO 03 · 6 POSTERS</span>
+            <h3>Porsche Rennsport</h3>
+            <p>Carrera GT · GT2 RS · GT3 RS · 919 Evo · GT4 RS · GT3 RS 2024</p>
+            <button class="combo-button" data-combo="porsche">View this set <span>→</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="collection" id="collection">
+      <div class="collection-heading">
+        <div><p class="eyebrow">THE COLLECTION</p><h2>Poster archive</h2></div>
+        <div class="controls">
+          <label class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+            <input id="searchInput" type="search" placeholder="Search model, brand or description..." />
+          </label>
+          <label class="select-wrap">
+            <select id="brandFilter"><option value="">All brands</option></select>
+          </label>
+        </div>
+      </div>
+
+      <div class="combo-status" id="comboStatus" hidden><span id="comboStatusText"></span><button id="clearCombo">Show full archive ×</button></div>
+
+      <div class="poster-grid" id="posterGrid"></div>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon"><span>＋</span></div>
+        <p class="eyebrow">THE GARAGE IS EMPTY</p>
+        <h3>Your first poster<br>belongs here.</h3>
+        <p>Upload an artwork and add the car's details<br>to begin your archive.</p>
+      </div>
+      <div class="no-results" id="noResults" hidden>No machines found. Try a different search.</div>
+    </section>
+  </main>
+
+  <dialog id="uploadDialog">
+    <form id="posterForm">
+      <div class="modal-head">
+        <div><p class="eyebrow">NEW ARCHIVE ENTRY</p><h2>Add a poster</h2></div>
+        <button type="button" class="icon-button" id="closeUpload" aria-label="Close">×</button>
+      </div>
+
+      <label class="image-drop" id="imageDrop">
+        <input id="imageInput" type="file" accept="image/*" required />
+        <img id="imagePreview" alt="Poster preview" />
+        <span class="drop-content"><b>Drop your poster here</b><small>or click to browse · JPG, PNG, WEBP</small></span>
+      </label>
+
+      <div class="form-grid">
+        <label class="field"><span>Car brand *</span><input id="brandInput" list="brandList" placeholder="Start typing a brand..." required autocomplete="off" /></label>
+        <label class="field"><span>Model *</span><input id="modelInput" list="modelList" placeholder="e.g. 911 GT3 RS" required autocomplete="off" /></label>
+      </div>
+      <datalist id="brandList"></datalist>
+      <datalist id="modelList"></datalist>
+
+      <label class="field"><span>Extras</span><div class="extras-entry"><input id="extrasInput" placeholder="Type an extra and press Enter..." /><button type="button" id="addExtra">Add</button></div></label>
+      <div class="tag-list" id="extraTags"></div>
+      <label class="field"><span>Description *</span><textarea id="descriptionInput" rows="4" maxlength="500" placeholder="Tell the story of this car and your artwork..." required></textarea><small class="char-count"><b id="charCount">0</b>/500</small></label>
+
+      <div class="form-actions">
+        <button type="button" class="button button-ghost" id="cancelUpload">Cancel</button>
+        <button type="submit" class="button button-primary">Archive poster <span>→</span></button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="detailDialog" class="detail-dialog"><div id="detailContent"></div></dialog>
+  <script src="catalog-koenigsegg.js"></script>
+  <script src="catalog-porsche.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
