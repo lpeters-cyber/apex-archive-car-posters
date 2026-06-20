@@ -287,7 +287,21 @@ function addExtra(){const value=els.extras.value.trim();if(value&&!extraList.som
 function renderTags(){els.tags.innerHTML=extraList.map((x,i)=>`<span class="extra-chip">${escapeHtml(x)}<button type="button" data-remove="${i}">×</button></span>`).join("")}
 function fileToData(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
 function save(){localStorage.setItem("apex-posters",JSON.stringify(posters))}
-const printSizes={"30 × 40 cm":[3543,4724],"20 × 30 cm":[2362,3543],"30 × 45 cm":[3543,5315],"40 × 50 cm":[4724,5906],"50 × 70 cm":[5906,8268],"A4 (21 × 29.7 cm)":[2480,3508],"A3 (29.7 × 42 cm)":[3508,4961]};
+const printSizes={
+  "10 × 15 cm":[1181,1772],
+  "A6 (10.5 × 14.8 cm)":[1240,1748],
+  "13 × 18 cm":[1535,2126],
+  "A5 (14.8 × 21 cm)":[1748,2480],
+  "20 × 30 cm":[2362,3543],
+  "A4 (21 × 29.7 cm)":[2480,3508],
+  "30 × 40 cm":[3543,4724],
+  "A3 (29.7 × 42 cm)":[3508,4961],
+  "30 × 45 cm":[3543,5315],
+  "40 × 50 cm":[4724,5906],
+  "50 × 70 cm":[5906,8268],
+  "A2 (42 × 59.4 cm)":[4961,7016],
+  "A1 (59.4 × 84.1 cm)":[7016,9933]
+};
 function slugify(value){return value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=src})}
 async function downloadPoster(id,button){
