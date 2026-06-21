@@ -2,6 +2,7 @@ const brands = {
   "Alfa Romeo":["Giulia","4C","8C Competizione","33 Stradale"], "Aston Martin":["DB5","DB11","DB12","Vantage","Valkyrie"], Audi:["R8","RS3","RS6 Avant","Quattro"], BMW:["M2","M3","M4","M5","i8","Z4"], Bugatti:["Veyron","Chiron","Divo","Tourbillon"], Chevrolet:["Corvette","Camaro","Impala"], Dodge:["Challenger","Charger","Viper"], Ferrari:["250 GTO","F40","F50","Enzo","LaFerrari","Roma","SF90 Stradale","296 GTB"], Ford:["Mustang","GT","Escort RS Cosworth","F-150 Raptor"], Honda:["NSX","S2000","Civic Type R","Integra Type R"], Jaguar:["E-Type","F-Type","XJ220"], Lamborghini:["Miura","Countach","Diablo","Murciélago","Aventador","Huracán","Revuelto"], Lexus:["LFA","LC 500","IS 500"], Lotus:["Elise","Exige","Emira","Evija"], Maserati:["MC12","MC20","GranTurismo"], Mazda:["MX-5","RX-7","RX-8","787B"], McLaren:["F1","P1","Senna","720S","750S"], Mercedes:["300 SL","AMG GT","SLS AMG","G-Class","CLK GTR"], "Mercedes-AMG":["Project One"], Mitsubishi:["Lancer Evolution","3000GT","Eclipse"], Nissan:["GT-R","Skyline GT-R","350Z","370Z","Z","Silvia"], Pagani:["Zonda","Huayra","Utopia"], Porsche:["911","911 GT3 RS","918 Spyder","Carrera GT","Cayman GT4","Taycan"], Renault:["Clio V6","5 Turbo","Alpine A110"], Rimac:["Nevera","Concept One"], Subaru:["Impreza WRX STI","BRZ","Legacy"], Toyota:["Supra","GR86","GR Yaris","2000GT","AE86"], Volkswagen:["Golf GTI","Golf R","Beetle","Scirocco"], Volvo:["P1800","850 R","V60 Polestar"]
 };
 brands.F1=["Cadillac F1","VCARB 03","Audi R26","Haas VF-26","Williams FW48","Aston Martin AMR26","Red Bull RB22","Alpine A526","Ferrari SF-26","McLaren MCL40","Mercedes-AMG W16"];
+brands.Racetracks=["Austria — Red Bull Ring","Spain — Circuit de Barcelona-Catalunya","Canada — Circuit Gilles Villeneuve","Miami International Autodrome","Japan — Suzuka Circuit","Monaco — Circuit de Monaco","China — Shanghai International Circuit","Zandvoort Circuit","Hungary — Hungaroring","Belgium — Circuit de Spa-Francorchamps","Silverstone Circuit"];
 const $=s=>document.querySelector(s);
 const els={dialog:$("#uploadDialog"),form:$("#posterForm"),grid:$("#posterGrid"),empty:$("#emptyState"),noResults:$("#noResults"),brand:$("#brandInput"),model:$("#modelInput"),image:$("#imageInput"),preview:$("#imagePreview"),drop:$("#imageDrop"),extras:$("#extrasInput"),tags:$("#extraTags"),desc:$("#descriptionInput"),search:$("#searchInput"),filter:$("#brandFilter"),detail:$("#detailDialog")};
 const starterPosters=[{
@@ -256,9 +257,9 @@ const starterPosters=[{
   extras:["Alternate Poster","2019","8.0L Quad-Turbo W16","1,500 PS","1,600 Nm","0-100 km/h: 2.4 s","420 km/h","7-Speed Dual-Clutch","All-Wheel Drive","One of One"],
   image:"assets/bugatti-la-voiture-noire-alternate.png",created:Date.now()-32
 }];
-starterPosters.push(...(window.koenigseggCatalog||[]),...(window.porscheCatalog||[]),...(window.f1Catalog||[]));
+starterPosters.push(...(window.koenigseggCatalog||[]),...(window.porscheCatalog||[]),...(window.f1Catalog||[]),...(window.racetrackCatalog||[]));
 const savedPosters=localStorage.getItem("apex-posters");
-const savedList=savedPosters===null?null:JSON.parse(savedPosters), seedVersion="13";
+const savedList=savedPosters===null?null:JSON.parse(savedPosters), seedVersion="14";
 let posters=savedList===null?starterPosters:localStorage.getItem("apex-seed-version")!==seedVersion?[...starterPosters,...savedList.filter(item=>!starterPosters.some(seed=>seed.id===item.id))]:savedList, extraList=[], activeCombo=null;
 localStorage.setItem("apex-seed-version",seedVersion);
 const comboSets={
