@@ -310,7 +310,7 @@ async function downloadPoster(id,button){
   const poster=posters.find(item=>item.id===id), label=$("#downloadSize").value, [width,height]=printSizes[label];
   if(!poster)return;
   if(location.protocol==="file:"){
-    alert("Print downloads need the local website launcher. Close this page, then open Start Apex Archive.cmd from the website folder.");
+    alert("Print downloads need the local website launcher. Close this page, then open Start Throttle Glory.cmd from the website folder.");
     return;
   }
   const oldText=button.textContent;button.disabled=true;button.textContent="Preparing print…";
