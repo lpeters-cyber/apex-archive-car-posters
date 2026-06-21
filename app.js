@@ -266,7 +266,8 @@ const comboSets={
   bugatti:{name:"Bugatti Legacy · 5-poster set",ids:["bugatti-eb110-1991","bugatti-veyron-2005","bugatti-chiron-2016","bugatti-mistral-poster-2","bugatti-tourbillon-poster-1"]},
   koenigsegg:{name:"Koenigsegg Evolution · 6-poster set",ids:["koenigsegg-cc-prototype-1996","koenigsegg-cc8s-2002","koenigsegg-ccr-2004","koenigsegg-ccx-2006","koenigsegg-agera-rs-2015","koenigsegg-jesko-absolut-2021"]},
   porsche:{name:"Porsche Rennsport · 6-poster set",ids:["porsche-carrera-gt-2004","porsche-911-gt2-rs-997-2010","porsche-911-gt3-rs-9912-2018","porsche-919-hybrid-evo-2018","porsche-718-cayman-gt4-rs-2021","porsche-911-gt3-rs-2024-poster"]},
-  f1:{name:"Formula 1 2026 Grid · 11-poster bundle",ids:["f1-cadillac-2026","f1-vcarb-03-2026","f1-audi-r26-2026","f1-haas-vf-26-2026","f1-williams-fw48-2026","f1-aston-martin-amr26-2026","f1-red-bull-rb22-2026","f1-alpine-a526-2026","f1-ferrari-sf-26-2026","f1-mclaren-mcl40-2026","f1-mercedes-w16-2026"]}
+  f1:{name:"Formula 1 2026 Grid · 11-poster bundle",ids:["f1-cadillac-2026","f1-vcarb-03-2026","f1-audi-r26-2026","f1-haas-vf-26-2026","f1-williams-fw48-2026","f1-aston-martin-amr26-2026","f1-red-bull-rb22-2026","f1-alpine-a526-2026","f1-ferrari-sf-26-2026","f1-mclaren-mcl40-2026","f1-mercedes-w16-2026"]},
+  racetracks:{name:"Formula 1 Circuit Collection · 12-poster bundle",ids:["racetrack-austria-red-bull-ring-2026","racetrack-spain-barcelona-2026","racetrack-austria-red-bull-ring-alternate-2026","racetrack-canada-gilles-villeneuve-2026","racetrack-miami-2026","racetrack-japan-suzuka-2026","racetrack-monaco-2026","racetrack-china-shanghai-2026","racetrack-zandvoort-2026","racetrack-hungary-hungaroring-2026","racetrack-belgium-spa-2026","racetrack-silverstone-2026"]}
 };
 
 function fillLists(){
