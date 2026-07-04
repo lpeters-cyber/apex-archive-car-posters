@@ -155,3 +155,74 @@
   .combo-art img { max-height: 175px; }
   .combo-copy { padding: 22px; }
 }
+
+/* Compact collection selector: keeps all bundles visible without pushing the archive too far down. */
+.combo-section {
+  padding: 48px clamp(18px, 4vw, 58px) 52px;
+}
+
+.combo-heading {
+  margin-bottom: 22px;
+}
+
+.combo-heading h2 {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.combo-grid {
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 12px;
+}
+
+.combo-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  min-height: 145px;
+}
+
+.combo-art {
+  height: auto;
+  min-height: 145px;
+  padding: 12px 0 12px 12px;
+}
+
+.combo-art img {
+  width: 58px;
+  max-height: 105px;
+  border-width: 2px;
+}
+
+.combo-art img:nth-child(n+4) {
+  display: none;
+}
+
+.combo-art img + img {
+  margin-left: -34px;
+}
+
+.combo-copy {
+  padding: 16px 16px 15px;
+}
+
+.combo-copy h3 {
+  font-size: 20px;
+  margin: 6px 0 6px;
+}
+
+.combo-copy p {
+  min-height: 0;
+  margin-bottom: 13px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 540px) {
+  .combo-section { padding-top: 38px; }
+  .combo-grid { grid-template-columns: 1fr; }
+  .combo-card { grid-template-columns: 82px 1fr; }
+  .combo-art { min-height: 132px; padding-inline: 10px 0; }
+  .combo-art img { max-height: 92px; width: 52px; }
+  .combo-copy { padding: 15px; }
+}
