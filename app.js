@@ -300,23 +300,23 @@ function render(){
 function openForm(){els.dialog.showModal()}
 function closeForm(){els.dialog.close();els.form.reset();extraList=[];renderTags();els.preview.removeAttribute("src");els.drop.classList.remove("has-image");$("#charCount").textContent="0"}
 function addExtra(){const value=els.extras.value.trim();if(value&&!extraList.some(x=>x.toLowerCase()===value.toLowerCase())){extraList.push(value);els.extras.value="";renderTags()}}
-function renderTags(){els.tags.innerHTML=extraList.map((x,i)=>`<span class="extra-chip">${escapeHtml(x)}<button type="button" data-remove="${i}">Ã—</button></span>`).join("")}
+function renderTags(){els.tags.innerHTML=extraList.map((x,i)=>`<span class="extra-chip">${escapeHtml(x)}<button type="button" data-remove="${i}">X</button></span>`).join("")}
 function fileToData(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
 function save(){localStorage.setItem("apex-posters",JSON.stringify(posters))}
 const printSizes={
-  "10 Ã— 15 cm":[1181,1772],
-  "A6 (10.5 Ã— 14.8 cm)":[1240,1748],
-  "13 Ã— 18 cm":[1535,2126],
-  "A5 (14.8 Ã— 21 cm)":[1748,2480],
-  "20 Ã— 30 cm":[2362,3543],
-  "A4 (21 Ã— 29.7 cm)":[2480,3508],
-  "30 Ã— 40 cm":[3543,4724],
-  "A3 (29.7 Ã— 42 cm)":[3508,4961],
-  "30 Ã— 45 cm":[3543,5315],
-  "40 Ã— 50 cm":[4724,5906],
-  "50 Ã— 70 cm":[5906,8268],
-  "A2 (42 Ã— 59.4 cm)":[4961,7016],
-  "A1 (59.4 Ã— 84.1 cm)":[7016,9933]
+  "10 x 15 cm":[1181,1772],
+  "A6 (10.5 x 14.8 cm)":[1240,1748],
+  "13 x 18 cm":[1535,2126],
+  "A5 (14.8 x 21 cm)":[1748,2480],
+  "20 x 30 cm":[2362,3543],
+  "A4 (21 x 29.7 cm)":[2480,3508],
+  "30 x 40 cm":[3543,4724],
+  "A3 (29.7 x 42 cm)":[3508,4961],
+  "30 x 45 cm":[3543,5315],
+  "40 x 50 cm":[4724,5906],
+  "50 x 70 cm":[5906,8268],
+  "A2 (42 x 59.4 cm)":[4961,7016],
+  "A1 (59.4 x 84.1 cm)":[7016,9933]
 };
 function slugify(value){return value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=src})}
@@ -345,7 +345,7 @@ async function downloadPoster(id,button){
   }catch(error){alert("That print file could not be prepared. Please try again.")}
   finally{button.disabled=false;button.textContent=oldText}
 }
-function openDetail(id){const p=posters.find(x=>x.id===id);if(!p)return;$("#detailContent").innerHTML=`<div class="detail-layout"><div class="detail-image"><img src="${p.image}" alt="${escapeHtml(p.brand+' '+p.model)}"></div><div class="detail-copy"><button class="icon-button detail-close" aria-label="Close">Ã—</button><p class="eyebrow">${escapeHtml(p.brand)}</p><h2>${escapeHtml(p.model)}</h2><p>${escapeHtml(p.description)}</p>${p.extras.length?`<div class="tags">${p.extras.map(x=>`<span class="tag">${escapeHtml(x)}</span>`).join("")}</div>`:""}<div class="download-panel"><span class="download-label">PRINT-READY DOWNLOAD</span><div class="download-row"><select id="downloadSize" aria-label="Print size">${Object.keys(printSizes).map(size=>`<option>${size}</option>`).join("")}</select><button class="download-button" data-download="${p.id}">Download</button></div><small>Full artwork Â· 300 DPI-ready JPG Â· quality depends on the original image</small></div></div></div>`;els.detail.showModal()}
+function openDetail(id){const p=posters.find(x=>x.id===id);if(!p)return;$("#detailContent").innerHTML=`<div class="detail-layout"><div class="detail-image"><img src="${p.image}" alt="${escapeHtml(p.brand+' '+p.model)}"></div><div class="detail-copy"><button class="icon-button detail-close" aria-label="Close">X</button><p class="eyebrow">${escapeHtml(p.brand)}</p><h2>${escapeHtml(p.model)}</h2><p>${escapeHtml(p.description)}</p>${p.extras.length?`<div class="tags">${p.extras.map(x=>`<span class="tag">${escapeHtml(x)}</span>`).join("")}</div>`:""}<div class="download-panel"><span class="download-label">PRINT-READY DOWNLOAD</span><div class="download-row"><select id="downloadSize" aria-label="Print size">${Object.keys(printSizes).map(size=>`<option>${size}</option>`).join("")}</select><button class="download-button" data-download="${p.id}">Download</button></div><small>Full artwork - 300 DPI-ready JPG - quality depends on the original image</small></div></div></div>`;els.detail.showModal()}
 
 $("#openUpload")?.addEventListener("click",openForm);$("#emptyUpload")?.addEventListener("click",openForm);$("#closeUpload").onclick=closeForm;$("#cancelUpload").onclick=closeForm;els.brand.oninput=updateModels;$("#addExtra").onclick=addExtra;
 els.extras.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();addExtra()}});
