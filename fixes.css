@@ -170,25 +170,25 @@
 }
 
 .combo-grid {
-  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 14px;
 }
 
 .combo-card {
   display: grid;
-  grid-template-columns: 92px 1fr;
-  min-height: 145px;
+  grid-template-columns: 132px 1fr;
+  min-height: 170px;
 }
 
 .combo-art {
   height: auto;
-  min-height: 145px;
-  padding: 12px 0 12px 12px;
+  min-height: 170px;
+  padding: 12px 0 12px 14px;
 }
 
 .combo-art img {
-  width: 58px;
-  max-height: 105px;
+  width: 86px;
+  max-height: 142px;
   border-width: 2px;
 }
 
@@ -197,32 +197,86 @@
 }
 
 .combo-art img + img {
-  margin-left: -34px;
+  margin-left: -52px;
 }
 
 .combo-copy {
-  padding: 16px 16px 15px;
+  padding: 14px 14px 13px;
+}
+
+.combo-number {
+  font-size: 8px;
+  letter-spacing: .14em;
 }
 
 .combo-copy h3 {
-  font-size: 20px;
-  margin: 6px 0 6px;
+  font-size: 16px;
+  margin: 4px 0 5px;
 }
 
 .combo-copy p {
   min-height: 0;
-  margin-bottom: 13px;
+  margin-bottom: 11px;
+  font-size: 10px;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
+.combo-button {
+  font-size: 9px;
+}
+
+@media (min-width: 821px) {
+  .detail-dialog {
+    width: min(1560px, calc(100vw - 28px));
+    max-height: calc(100vh - 24px);
+  }
+
+  .detail-layout {
+    grid-template-columns: minmax(0, 1.75fr) minmax(320px, .75fr);
+    min-height: calc(100vh - 32px);
+  }
+
+  .detail-image {
+    min-height: calc(100vh - 32px);
+  }
+
+  .detail-image img {
+    max-height: calc(100vh - 32px);
+    object-fit: contain;
+  }
+
+  .detail-copy {
+    padding: 38px 42px;
+  }
+
+  .detail-copy h2 {
+    font-size: clamp(34px, 3.8vw, 60px);
+  }
+
+  .detail-copy p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .detail-copy .tags {
+    gap: 5px;
+  }
+
+  .detail-copy .tag {
+    font-size: 8px;
+    padding: 5px 7px;
+  }
+}
+
 @media (max-width: 540px) {
   .combo-section { padding-top: 38px; }
   .combo-grid { grid-template-columns: 1fr; }
-  .combo-card { grid-template-columns: 82px 1fr; }
-  .combo-art { min-height: 132px; padding-inline: 10px 0; }
-  .combo-art img { max-height: 92px; width: 52px; }
+  .combo-card { grid-template-columns: 112px 1fr; }
+  .combo-art { min-height: 138px; padding-inline: 10px 0; }
+  .combo-art img { max-height: 112px; width: 72px; }
   .combo-copy { padding: 15px; }
 }
